@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="loginTemplate" template="/WEB-INF/tiles/layout/loginLayout.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="mainTemplate" template="/WEB-INF/tiles/layout/mainLayout.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
+        <put-attribute name="left" value="" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="baseTemplate" template="/WEB-INF/tiles/layout/baseLayout.jsp">
+        <put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+    </definition>
+
+    <definition name="dialogTemplate" template="/WEB-INF/tiles/layout/dialogLayout.jsp">
+        <put-attribute name="content" value="" />
+    </definition>
+
+    <definition name="popupTemplate" template="/WEB-INF/tiles/layout/popupLayout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+        <put-attribute name="content" value="" />
+    </definition>
+
+    <!-- name은 뷰이름으로 맵핑된다. -->
+    <definition name="login/*" extends="loginTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/login/{1}.jsp" />
+    </definition>
+
+    <definition name="main/*/*" extends="mainTemplate">
+        <put-attribute name="left" value="/WEB-INF/views/{1}/left.jsp" />
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+    </definition>
+
+    <definition name="base/*/*" extends="baseTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+    </definition>
+
+    <definition name="dialog/*/*/*" extends="dialogTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    </definition>
+
+    <definition name="popup/*/*/*" extends="popupTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    </definition>
+
+    <definition name="dialog/*/*/*/*" extends="dialogTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}/{4}.jsp" />
+    </definition>
+
+    <definition name="dialog/*/*/*/*/*" extends="dialogTemplate">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}/{4}/{5}.jsp" />
+    </definition>
+</tiles-definitions>
